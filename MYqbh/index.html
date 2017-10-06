@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>千百汇购物网</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/qbh.css">
+</head>
+<body>
+<a href="javascript:;"  class='shoppingcenter'>
+    <img src="./images/shoppingcenter.png" alt="shoppingcenter">
+</a>
+
+<div id="dowebok">
+    <!--第一屏幕-->
+    <div class="section qbh-title">
+        <img class='qbh-title-extra' src="./images/qbh-title-extra.png" alt="xxx">
+        <img class='qbh-title-sofa' src="./images/qbh-title-sofa.png" alt="yyy">
+        <img class='qbh-title-name' src="./images/qbh-title-name.png" alt="ccc">
+    </div>
+    <!--第二屏幕-->
+    <div class="section qbh-list">
+        <div class=qbh-list-search>
+            <!--空白搜索框-->
+            <img src="./images/qbh-list-search-box.png" alt="cc" class=qbh-list-search-box>
+            <!--文字-->
+            <img src="./images/qbh-list-search-font.png" alt="cc" class='qbh-list-search-font'>
+            <!--文字搜索框-->
+            <img src="./images/qbh-list-search-finish.png" alt="cc" class=qbh-list-search-finish>
+            <!--沙发-->
+            <img src="./images/qbh-list-sofas.png" alt="cc" class='qbh-list-sofas'>
+            <!--掉下去的沙发-->
+            <img src="./images/qbh-list-sofa-pic.png" alt="cc" class=qbh-list-sofa-pic>
+        </div>
+        <!--宣传语-->
+        <img src="./images/qbh-list-wordb.png" alt="cc" class='qbh-list-wordb'>
+        <img src="./images/qbh-list-worda.png" alt="cc" class='qbh-list-worda'>
+    </div>
+    <!--第三屏幕-->
+    <div class="section qbh-buy">
+        <!--颜色参数图2-->
+        <img src="./images/qbh-buy-choose-end.gif" alt="cc" class=qbh-buy-choose-end>
+        <!--颜色参数图-->
+        <img src="./images/qbh-buy-choose-start.gif" alt="cc" class=qbh-buy-choose-start>
+        <!--添加购物车-->
+        <img src="./images/qbh-buy-add-cart-end.gif" alt="cc" class=qbh-buy-add-cart-end>
+        <!--掉下的沙发-->
+        <img src="./images/qbh-info-rotate-sofa.png" alt="qbh-info-rotate-sofa" class=qbh-info-rotate-sofa>
+    </div>
+    <!--第四屏幕-->
+    <div class="section qbh-info">
+        <!--云-->
+        <img src="./images/qbh-info-cloud.png" alt="cc" class=qbh-info-cloud>
+        <!--宣传语-->
+        <img src="./images/qbh-info-wordb.png" alt="xx" class=qbh-info-wordb>
+        <img src="./images/qbh-info-worda.png" alt="xx" class=qbh-info-worda>
+        <!--购物车-->
+        <img src="./images/qbh-info-cart.png" alt="qbh-info-cart.png" class=qbh-info-cart>
+        <!--电脑-->
+        <img src="./images/qbh-info-address-box.png" alt="qbh-info-address-box" class=qbh-info-address-box>
+        <!--收货地址-->
+        <img src="./images/qbh-info-address.png" alt="qbh-info-address.png" class='qbh-info-address'>
+    </div>
+    <div class="section">
+    </div>
+    <div class="section">
+    </div>
+    <div class="section">
+    </div>
+    <div class="section">
+    </div>
+</div>
+
+<script src=./js/jquery.min.js></script>
+<script src=./js/jquery.fullPage.min.js></script>
+<script src=./js/jquery.easings.min.js></script>
+<script>
+    $(function(){
+        $('#dowebok').fullpage({
+           //每个屏幕添加背景色
+            sectionsColor:['#fadd67', '#84a2d4', '#ef674d', '#ffeedd', '#d04759', '#84d9ed', '#4fdded', '#fff'],
+            //导航圆点显示
+            navigation:true,
+            // 滚动到某一屏后的回调函数，接收 anchorLink 和 index 两个参数，
+            // anchorLink 是锚链接的名称，index 是序号，从1开始计算
+            afterLoad: function (anchorLink, index) {
+                if (index == 2) {
+//                    解决bug，只有当right！=380的时候才继续执行
+                    if ($('.qbh-list .qbh-list-search-box').css('right') != '380px') {
+                        $('.qbh-list .qbh-list-search-box').animate({
+                            'right':380,
+                            'opacity': 1
+                        },800, function () {
+                            $('.qbh-list .qbh-list-search-font').animate({
+                                'opacity': 1
+                            },500, function () {
+                                $('.qbh-list .qbh-list-search-box').animate({
+                                    'opacity': 0
+                                })
+                                $('.qbh-list .qbh-list-search-font').animate({
+                                    'opacity': 0
+                                })
+                                $('.qbh-list .qbh-list-worda').animate({
+                                    'opacity': 0
+                                })
+                                $('.qbh-list .qbh-list-wordb').animate({
+                                    'opacity': 1
+                                })
+                                $('.qbh-list .qbh-list-search-finish').animate({
+                                    'opacity': 1,
+                                    'right':'23%',
+                                    'top':'7%',
+                                    'width':148,
+                                    'height':30
+                                },700)
+                                $('.qbh-list .qbh-list-sofas').delay(150).animate({
+                                    'opacity': 1,
+                                    'right': '26%',
+                                    'top': '35%',
+                                    'width':441,
+                                    'height':218
+                                })
+
+                            })
+                        })
+                    }
+
+                }
+            },
+            // 滚动前的回调函数，接收 index、nextIndex 和 direction 3个参数：index 是离开的“页面”的序号，从1开始计算；
+            // nextIndex 是滚动到的“页面”的序号，从1开始计算；
+            // direction 判断往上滚动还是往下滚动，值是 up 或 down。
+            onLeave: function (index,nextIndex) {
+                var wHeight = $(window).height();
+                if (index == 2 && nextIndex == 3) {
+//                    沙发掉下去后的定位 -（浏览器的高度-250）
+                    $('.qbh-list .qbh-list-sofa-pic').show().animate({
+                        'width':204,
+                        'height':164,
+                        'right':515,
+                        'bottom': -(wHeight - 250),
+                    },1000,function(){
+                        $('.qbh-buy .qbh-buy-choose-start').animate({
+                            'opacity':0
+                        })
+                        $('.qbh-buy .qbh-buy-choose-end').animate({
+                            'opacity':1
+                        })
+                    })
+                }
+                if (index == 3 && nextIndex == 4) {
+                    if ($('.qbh-buy .qbh-info-rotate-sofa,.qbh-info .qbh-info-cart').css('right') != '-20%') {
+                        $('.qbh-list .qbh-list-sofa-pic').hide(0, function () {
+                            $('.qbh-buy .qbh-info-rotate-sofa').show().animate({
+                                'bottom':-(wHeight-250),
+                                'right':'40%'
+                            }, function () {
+                                $('.qbh-buy .qbh-info-rotate-sofa,.qbh-info .qbh-info-cart').animate({
+                                    'right':'-20%'
+                                },1500, function () {
+                                    $('.qbh-buy .qbh-info-rotate-sofa,.qbh-info .qbh-info-cart').hide();
+                                    $('.qbh-info .qbh-info-address-box').animate({
+                                        'opacity':1
+                                    },400, function () {
+                                        $('.qbh-info .qbh-info-address').animate({
+                                            'opacity':1
+                                        },400)
+                                        $('.qbh-info .qbh-info-wordb').animate({
+                                            'opacity':1
+                                        })
+                                        $('.qbh-info .qbh-info-worda').animate({
+                                            'opacity':0
+                                        })
+                                    })
+                                })
+                            })
+                        })
+                    }
+
+                }
+            }
+            
+        });
+    });
+</script>
+</body>
+</html>
