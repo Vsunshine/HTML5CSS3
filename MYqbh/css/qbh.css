@@ -265,5 +265,201 @@
     transform: translateX(50%);
     opacity: 0;
 }
-.qbh-info
-.qbh-info
+
+/* <!--第五屏幕--> */
+.qbh-payment{
+    background: url('../images/qbh-payment-bg.png') repeat;
+    position: relative;
+    z-index: 2;
+}
+/* 银行卡 */
+.qbh-payment .qbh-payment-cards{
+    position: absolute;
+    left: 20%;
+    top: 36%;
+}
+/* 沙发 */
+.qbh-payment .qbh-info-rotate-sofa{
+    position: absolute;
+    top: -25%;
+    left: 20%;
+    display: none;
+}
+/* 账单 */
+.qbh-payment .qbh-payment-bill{
+    position: absolute;
+    left: 28%;
+    top: 36%;
+}
+/* <!-- 宣传语 --> */
+.qbh-payment .qbh-payment-font{
+    position: absolute;
+    left: 20%;
+    top: 0%;
+}
+/* 鼠标 */
+.qbh-payment .qbh-payment-monse-start,
+.qbh-payment .qbh-payment-mouse-end{
+    position: absolute;
+    right: 18%;
+    bottom: 27%;
+    z-index: -2;
+}
+/* 手 */
+.qbh-payment .shou{
+    position: absolute;
+    bottom: 0;
+    right: 19%;
+    width: 230px;
+    height: 500px;
+    overflow: hidden;
+}
+.qbh-payment .qbh-payment-hands{
+    position: absolute;
+    right: 22%;
+    bottom: -25%;
+    display: none;
+    z-index: -1;
+}
+
+/* 第六屏幕 */
+.qbh-delivery{
+    background: url('../images/qbh-delivery-bg.png') no-repeat;
+    background-position: 25% bottom;
+    position: relative;
+}
+/* 云 */
+.qbh-delivery .qbh-delivery-cloud-one{
+    position: absolute;
+    top: 2%;
+    left: 0;
+}
+.qbh-delivery .qbh-delivery-cloud-two{
+    position: absolute;
+    top: 2%;
+    right: 0;
+}
+/* 送货车 */
+.qbh-delivery .qbh-delivery-truck{
+    position: absolute;
+    bottom: 0%;
+    left: 35%;
+}
+/* 箱子 */
+.qbh-delivery .qbh-delivery-box{
+    position: absolute;
+    top: 20%;
+    left: -10%;
+    display: none;
+}
+/* 沙发 */
+.qbh-delivery .qbh-info-rotate-sofa{
+    position: absolute;
+    top: -25%;
+    left: 25%;
+    display: none;
+}
+/* 地址 */
+.qbh-delivery .qbh-delivery-shangjia,
+.qbh-delivery .qbh-delivery-truck-font{
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    opacity: 0;
+}
+/* 送货人 */
+.qbh-delivery .qbh-delivery-deliveryman{
+    position: absolute;
+    bottom: 5%;
+    left: 38%;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+}
+/* 门 */
+.qbh-delivery .qbh-delivery-door{
+    position: absolute;
+    bottom: 17%;
+    right: 20.7%;
+    display: none;
+}
+/* 接货人 */
+.qbh-delivery .qbh-delivery-buyer{
+    position: absolute;
+    bottom: 17%;
+    right: 24%;
+    width: 0px;
+    height: 0px;
+}
+/* 宣传语 */
+.qbh-delivery .qbh-delivery-font-end,
+.qbh-delivery .qbh-delivery-font-start{
+    position: absolute;
+    top: 25%;
+    left: 35%;
+}
+.qbh-delivery .qbh-delivery-font-end{
+    opacity: 0;
+}
+/* 请收货？ */
+.qbh-delivery .qbh-delivery-shouhuo{
+    position: absolute;
+    top: 17%;
+    right: 33%;
+    display: none;
+}
+
+/* <!--第七屏幕--> */
+.qbh-appraise{
+    background: url(../images/qbh-appraise-bg.png) no-repeat;
+    background-position: center bottom;
+    position: relative;
+}
+.qbh-appraise .xing{
+    position: absolute;
+    top: 34.5%;
+    left: 28%;
+    font-size: 0;
+    width: 0;
+    height: 13px;
+    overflow: hidden;
+}
+.qbh-appraise .xing .qbh-appraise-star{
+    display: inline-block;
+    margin-left: 7px;
+}
+.qbh-appraise .qbh-appraise-haoping{
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    width: 0;
+    height: 40px;
+}
+
+/* 第八屏幕 */
+.qbh-shopping{
+    background: url(../images/qbh-shopping-bg.png) repeat;
+    position: relative;
+}
+.qbh-shopping .qhb-shopping-dong,
+.qbh-shopping .qbh-shopping-start-shopping
+{
+    position: absolute;
+    top: 25%;
+    left: 37%;
+}
+
+.qbh-shopping .qbh-shopping-again{
+    position: absolute;
+    top: 43%;
+    left: 67%;
+}
+/* 手 */
+.qbh-shopping .qbh-shopping-hands{
+    position: absolute;
+    top: 36%;
+    left: 45%;
+}
+
+
+
