@@ -12,7 +12,7 @@
     <a href="javascript:;" class='shoppingcenter'>
         <img src="./images/shoppingcenter.png" alt="shoppingcenter">
     </a>
-
+    <img src="./images/down.png" alt="down.png" class="down">
     <div id="dowebok">
         <!--第一屏幕-->
         <div class="section qbh-title">
@@ -124,10 +124,10 @@
         <div class="section qbh-shopping">
             <!-- 开始购物 -->
             <div class="gouwu">
-               <img src="./images/qhb-shopping-dong.gif" alt="qhb-shopping-dong.gif" class="qhb-shopping-dong">
-                <img src="./images/qbh-shopping-start-shopping.png" alt="qbh-shopping-start-shopping.png" class="qbh-shopping-start-shopping"> 
+                <img src="./images/qhb-shopping-dong.gif" alt="qhb-shopping-dong.gif" class="qhb-shopping-dong">
+                <img src="./images/qbh-shopping-start-shopping.png" alt="qbh-shopping-start-shopping.png" class="qbh-shopping-start-shopping">
             </div>
-            
+
             <!-- 再来一次 -->
             <a href="./index.html">
                 <img src="./images/qbh-shopping-again.png" alt="qbh-shopping-again.png" class="qbh-shopping-again">
@@ -153,6 +153,9 @@
                 // 滚动到某一屏后的回调函数，接收 anchorLink 和 index 两个参数，
                 // anchorLink 是锚链接的名称，index 是序号，从1开始计算
                 afterLoad: function (anchorLink, index) {
+                    if (index == 1) {
+                        $('.down').fadeIn();
+                    }
                     if (index == 2) {
                         //                    解决bug，只有当right！=380的时候才继续执行
                         if ($('.qbh-list .qbh-list-search-box').css('right') != '380px') {
@@ -188,6 +191,8 @@
                                         'top': '35%',
                                         'width': 441,
                                         'height': 218
+                                    }, function () {
+                                        $('.down').fadeIn();
                                     })
 
                                 })
@@ -202,30 +207,35 @@
                                 var xx = ev.pageX - 50;
                                 var yy = ev.pageY + 10;
                                 $('.qbh-shopping .qbh-shopping-hands').css({
-                                    'top':yy,
-                                    'left':xx
+                                    'top': yy,
+                                    'left': xx
                                 })
                                 $('.qbh-shopping .qbh-shopping-start-shopping').on({
-                                    'mouseenter':function(){
-                                        $('.qbh-shopping .qbh-shopping-start-shopping').hide();
+                                    'mouseenter': function () {
+                                        $(
+                                            '.qbh-shopping .qbh-shopping-start-shopping'
+                                        ).hide();
                                     }
                                 })
                                 $('.qbh-shopping .qhb-shopping-dong').on({
-                                    'mouseleave':function(){
-                                        $('.qbh-shopping .qbh-shopping-start-shopping').show();
+                                    'mouseleave': function () {
+                                        $(
+                                            '.qbh-shopping .qbh-shopping-start-shopping'
+                                        ).show();
                                     }
                                 })
                             }
                         })
-                        
-                        
-                        
+
+
+
                     }
                 },
                 // 滚动前的回调函数，接收 index、nextIndex 和 direction 3个参数：index 是离开的“页面”的序号，从1开始计算；
                 // nextIndex 是滚动到的“页面”的序号，从1开始计算；
                 // direction 判断往上滚动还是往下滚动，值是 up 或 down。
                 onLeave: function (index, nextIndex) {
+                    $('.down').fadeOut();
                     var wHeight = $(window).height();
                     if (index == 2 && nextIndex == 3) {
                         //                    沙发掉下去后的定位 -（浏览器的高度-250）
@@ -240,6 +250,8 @@
                             })
                             $('.qbh-buy .qbh-buy-choose-end').animate({
                                 'opacity': 1
+                            }, function () {
+                                $('.down').fadeIn();
                             })
                         })
                     }
@@ -278,6 +290,8 @@
                                                     '.qbh-info .qbh-info-worda'
                                                 ).animate({
                                                     'opacity': 0
+                                                }, function () {
+                                                    $('.down').fadeIn();
                                                 })
                                             })
                                     })
@@ -307,7 +321,9 @@
                             // 账单移动
                             $('.qbh-payment .qbh-payment-bill').delay(600).animate({
                                 'top': '22%'
-                            }, 600)
+                            }, 600, function () {
+                                $('.down').fadeIn();
+                            })
                         })
 
                     }
@@ -364,9 +380,15 @@
                                                 $(
                                                     '.qbh-delivery .qbh-delivery-buyer'
                                                 ).animate({
-                                                    'width': 87,
-                                                    'height': 294
-                                                })
+                                                        'width': 87,
+                                                        'height': 294
+                                                    },
+                                                    function () {
+                                                        $(
+                                                                '.down'
+                                                            )
+                                                            .fadeIn();
+                                                    })
                                             })
                                     })
 
@@ -407,6 +429,8 @@
                         }, 800, function () {
                             $('.qbh-appraise .qbh-appraise-haoping').delay(200).animate({
                                 'width': 72
+                            }, function () {
+                                $('.down').fadeIn();
                             })
                         })
                     }
