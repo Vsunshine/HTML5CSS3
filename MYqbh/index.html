@@ -157,7 +157,7 @@
                         $('.down').fadeIn();
                     }
                     if (index == 2) {
-                        //                    解决bug，只有当right！=380的时候才继续执行
+                        //  解决bug，只有当right！=380的时候才继续执行
                         if ($('.qbh-list .qbh-list-search-box').css('right') != '380px') {
                             $('.qbh-list .qbh-list-search-box').animate({
                                 'right': 380,
@@ -329,98 +329,105 @@
                     }
                     // 第六屏幕
                     if (index == 5 && nextIndex == 6) {
-                        // 云
-                        $('.qbh-delivery .qbh-delivery-cloud-one').animate({
-                            'left': '30%',
-                        }, 30000)
-                        $('.qbh-delivery .qbh-delivery-cloud-two').animate({
-                            'right': '30%',
-                        }, 30000)
-                        // 沙发和箱子
-                        $('.qbh-delivery .qbh-delivery-box').show().animate({
-                            'left': '23.5%'
-                        }, 800)
-                        $('.qbh-delivery .qbh-info-rotate-sofa').show().animate({
-                            'top': '23%',
-                            'width': '80px',
-                            'height': '75px'
+                        console.log($('.qbh-delivery .qbh-delivery-box').css('left'),$(
+                                '.qbh-delivery .qbh-delivery-box').css('top'))
+                        if ($('.qbh-delivery .qbh-delivery-box').css('left') != '573.719px' && $(
+                                '.qbh-delivery .qbh-delivery-box').css('top') != '630px') {
+                            // 云
+                            $('.qbh-delivery .qbh-delivery-cloud-one').animate({
+                                'left': '30%',
+                            }, 30000)
+                            $('.qbh-delivery .qbh-delivery-cloud-two').animate({
+                                'right': '30%',
+                            }, 30000)
+                            // 沙发和箱子
+                            $('.qbh-delivery .qbh-delivery-box').show().animate({
+                                'left': '23.5%'
+                            }, 800)
+                            $('.qbh-delivery .qbh-info-rotate-sofa').show().animate({
+                                'top': '23%',
+                                'width': '80px',
+                                'height': '75px'
 
-                        }, 800, function () {
-                            $('.qbh-delivery .qbh-info-rotate-sofa').hide();
-                            $('.qbh-delivery .qbh-delivery-box').animate({
-                                'left': '42%',
-                                'top': '90%',
-                                'width': 30,
-                                'height': 30
-                            }, 1000, function () {
-                                //车子开动
-                                $('.qbh-delivery').animate({
-                                    'backgroundPositionX': '100%'
-                                }, 1800, function () {
-                                    //送货人
-                                    $(
-                                        '.qbh-delivery .qbh-delivery-deliveryman'
-                                    ).animate({
-                                        'width': 252,
-                                        'height': 305,
-                                        'bottom': '17%',
-                                        'opacity': 1
-                                    }, 600).delay(50).animate({
-                                        'left': '45%'
-                                    }, 600, function () {
-                                        // 请收货
+                            }, 800, function () {
+                                $('.qbh-delivery .qbh-info-rotate-sofa').hide();
+                                $('.qbh-delivery .qbh-delivery-box').animate({
+                                    'left': '42%',
+                                    'top': '90%',
+                                    'width': 30,
+                                    'height': 30
+                                }, 1000, function () {
+                                    //车子开动
+                                    $('.qbh-delivery').animate({
+                                        'backgroundPositionX': '100%'
+                                    }, 1800, function () {
+                                        //送货人
                                         $(
-                                            '.qbh-delivery .qbh-delivery-shouhuo'
-                                        ).show();
-                                        // 门打开，人出来
-                                        $(
-                                            '.qbh-delivery .qbh-delivery-door'
-                                        ).delay(100).show(0,
-                                            function () {
-                                                $(
-                                                    '.qbh-delivery .qbh-delivery-buyer'
-                                                ).animate({
-                                                        'width': 87,
-                                                        'height': 294
-                                                    },
-                                                    function () {
-                                                        $(
-                                                                '.down'
-                                                            )
-                                                            .fadeIn();
-                                                    })
-                                            })
+                                            '.qbh-delivery .qbh-delivery-deliveryman'
+                                        ).animate({
+                                            'width': 252,
+                                            'height': 305,
+                                            'bottom': '17%',
+                                            'opacity': 1
+                                        }, 600).delay(50).animate({
+                                            'left': '45%'
+                                        }, 600, function () {
+                                            // 请收货
+                                            $(
+                                                '.qbh-delivery .qbh-delivery-shouhuo'
+                                            ).show();
+                                            // 门打开，人出来
+                                            $(
+                                                '.qbh-delivery .qbh-delivery-door'
+                                            ).delay(100).show(0,
+                                                function () {
+                                                    $(
+                                                        '.qbh-delivery .qbh-delivery-buyer'
+                                                    ).animate({
+                                                            'width': 87,
+                                                            'height': 294
+                                                        },
+                                                        function () {
+                                                            $
+                                                                (
+                                                                    '.down'
+                                                                )
+                                                                .fadeIn();
+                                                        })
+                                                })
+                                        })
+
                                     })
-
-                                })
-                                // 宣传语
-                                $('.qbh-delivery .qbh-delivery-font-start').animate({
-                                    'opacity': 0
-                                }, 1800, function () {
-                                    $(
-                                        '.qbh-delivery .qbh-delivery-font-end'
-                                    ).animate({
-                                        'opacity': 1
-                                    }, 5)
-
-                                })
-                                //送货中
-                                $('.qbh-delivery .qbh-delivery-shangjia').delay(400)
-                                    .animate({
-                                        'opacity': 1
-                                    }).delay(200).animate({
+                                    // 宣传语
+                                    $('.qbh-delivery .qbh-delivery-font-start').animate({
                                         'opacity': 0
-                                    }, 200, function () {
+                                    }, 1800, function () {
                                         $(
-                                            '.qbh-delivery .qbh-delivery-truck-font'
+                                            '.qbh-delivery .qbh-delivery-font-end'
                                         ).animate({
                                             'opacity': 1
-                                        })
+                                        }, 5)
+
                                     })
+                                    //送货中
+                                    $('.qbh-delivery .qbh-delivery-shangjia').delay(
+                                            400)
+                                        .animate({
+                                            'opacity': 1
+                                        }).delay(200).animate({
+                                            'opacity': 0
+                                        }, 200, function () {
+                                            $(
+                                                '.qbh-delivery .qbh-delivery-truck-font'
+                                            ).animate({
+                                                'opacity': 1
+                                            })
+                                        })
 
 
+                                })
                             })
-                        })
+                        }
                     }
                     //第七屏幕
                     if (index == 6 && nextIndex == 7) {
