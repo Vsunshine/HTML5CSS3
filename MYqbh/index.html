@@ -206,10 +206,19 @@
                             'mousemove': function (ev) {
                                 var xx = ev.pageX - 50;
                                 var yy = ev.pageY + 10;
-                                $('.qbh-shopping .qbh-shopping-hands').css({
-                                    'top': yy,
-                                    'left': xx
-                                })
+                                var y = $(window).height() - 600;
+                                if (y < yy) {
+                                    $('.qbh-shopping .qbh-shopping-hands').css({
+                                        'top': yy,
+                                        'left': xx
+                                    })
+                                }else{
+                                    $('.qbh-shopping .qbh-shopping-hands').css({
+                                        'top': y,
+                                        'left': xx
+                                    })
+                                }
+
                                 $('.qbh-shopping .qbh-shopping-start-shopping').on({
                                     'mouseenter': function () {
                                         $(
@@ -329,8 +338,8 @@
                     }
                     // 第六屏幕
                     if (index == 5 && nextIndex == 6) {
-                        console.log($('.qbh-delivery .qbh-delivery-box').css('left'),$(
-                                '.qbh-delivery .qbh-delivery-box').css('top'))
+                        console.log($('.qbh-delivery .qbh-delivery-box').css('left'), $(
+                            '.qbh-delivery .qbh-delivery-box').css('top'))
                         if ($('.qbh-delivery .qbh-delivery-box').css('left') != '573.719px' && $(
                                 '.qbh-delivery .qbh-delivery-box').css('top') != '630px') {
                             // 云
