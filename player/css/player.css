@@ -1,0 +1,96 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.player {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    margin: 50px auto;
+    /* background-color: #000; */
+}
+
+video::-webkit-media-controls-enclosure {
+    /*禁用播放器控制栏的样式*/
+    display: none !important;
+}
+
+.control {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 30px;
+    background-color: rgba(172, 172, 172, 0.7);
+    border-radius: 10px 10px 0 0;
+    z-index: 9999999999999999999999;
+}
+
+
+/* 按钮 */
+
+.control .anniu {
+    margin-left: 10px;
+    float: left;
+}
+
+.control .anniu i {
+    color: #000;
+    line-height: 30px;
+    font-size: 20px;
+}
+
+
+/* 进度条 */
+
+.control .jindu {
+    width: 60%;
+    height: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    margin-top: calc((30px - 16px)/2);
+    float: left;
+    margin-left: 20px;
+}
+
+.control .jindu-bar {
+    height: 100%;
+    width: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+
+/* 播放时间 */
+
+.control .time {
+    float: right;
+    margin-right: 20px;
+}
+
+.control .time span {
+    font-size: 16px;
+    line-height: 30px;
+}
+
+
+/* 全屏 */
+
+.control .quping {
+    float: right;
+    margin-right: 20px;
+}
+
+.control .quping i {
+    color: #000;
+    line-height: 30px;
+    font-size: 20px;
+}

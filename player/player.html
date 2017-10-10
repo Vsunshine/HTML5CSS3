@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/player.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="player">
+        <!-- 视频 -->
+        <video src="./HD-愿得一人心--音悦Tai.mp4" width="100%" height="100%" poster="./images/2.jpg"></video>
+        <!-- 按钮 -->
+        <div class="control">
+            <!-- 暂停/播放 -->
+            <a href="javascript:;" class="anniu">
+                <i class="an fa fa-play-circle"></i>
+            </a>
+            <!-- 播放时间调整 -->
+            <div class="jindu">
+                <div class="jindu-bar"></div>
+            </div>
+            <!-- 全屏 -->
+            <a href="javascript:;" class="quping">
+                <i class="fa fa-expand"></i>
+            </a>
+            <!-- 当前时间/总时间 -->
+            <div class="time">
+                <span>00:00:00</span>/
+                <span>00:00:00</span>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        var video = document.querySelector('video');
+        var control = document.querySelector('.control');
+        var anniu = document.querySelector('.anniu');
+        var an = document.querySelector('.an');
+        var jindu = document.querySelector('.jindu');
+        var jindubar = document.querySelector('.jindu-bar');
+        var span = document.querySelectorAll('span');
+        var quping = document.querySelector('.quping');
+        var player = document.querySelector('.player');
+
+        //控件显示隐藏
+
+        // onmouseenter onmouseleave
+        // player.addEventListener('mousemove',function () {  
+        //     clearInterval(timer);
+        //     var tim = 5
+        //     control.style.display = 'block';
+        //     console.log(22);
+        //     var timer = setInterval(function () {  
+        //         if(tim < 0){
+        //             control.style.display = 'none';
+        //             console.log(tim);
+        //             clearInterval(timer);
+        //         }
+        //         tim--;
+        //     },1000)
+        // })
+        // player.addEventListener('mouseleave',function () {  
+        //     control.style.display = 'none';
+        // })
+
+        player.addEventListener('mousemove',function (event) {  
+            var event = event || window.event;
+            var x = event.offsetX;
+            var tim = 5;
+            control.style.display = 'block';
+            var timer = setInterval(function () {  
+                if(tim <=0 && event.offsetX == x){
+                    control.style.display = 'none';
+                    clearInterval(timer);
+                    console.log(11);
+                }
+                tim--;
+            },1000)
+        })
+
+        // 鼠标在盒子里移动，控件显示，5秒不动，控件消失；
+        
+        //暂停显示播放按钮，播放显示暂停按钮；
+        anniu.addEventListener('click', function () {
+            //判断是播放还是暂停
+            if (video.paused) {
+                // 播放
+                video.play();
+                an.classList.add('fa-pause-circle');
+            } else {
+                // 暂停
+                video.pause();
+                an.classList.remove('fa-pause-circle');
+            }
+        })
+
+        //时间显示
+        // oncanplay 当视屏可以播放的时间触发
+        video.addEventListener('canplay', function () {
+            //获取总时间
+            var zsj = video.duration;
+            var h = Math.floor(zsj / 60 / 60);
+            var m = Math.floor(zsj / 60 % 60);
+            var s = Math.floor(zsj % 60);
+            h = h < 9 ? '0' + h : h;
+            m = m < 9 ? '0' + m : m;
+            s = s < 9 ? '0' + s : s;
+            span[1].innerHTML = h + ':' + m + ':' + s;
+        })
+
+        // 当前时间
+        // ontimeupdate 当前视频不断播放时触发
+        video.addEventListener('timeupdate', function () {
+            //获取当前时间
+            var dqsj = video.currentTime;
+            var h = Math.floor(dqsj / 60 / 60);
+            var m = Math.floor(dqsj / 60 % 60);
+            var s = Math.floor(dqsj % 60);
+            h = h < 9 ? '0' + h : h;
+            m = m < 9 ? '0' + m : m;
+            s = s < 9 ? '0' + s : s;
+            span[0].innerHTML = h + ':' + m + ':' + s;
+
+            //改变进度条进度
+            jindubar.style.width = dqsj / video.duration * 100 + '%';
+        })
+
+
+
+        //调整进度
+        jindu.addEventListener('click', function (event) {
+            var event = event || window.event;
+            var x = event.offsetX;
+            var z = this.offsetWidth;
+            video.currentTime = x / z * video.duration;
+        })
+
+        // 全屏播放
+        quping.addEventListener('click', function () {
+            video.webkitRequestFullscreen();
+            video.webkitExitFullscreen();
+        })
+    </script>
+</body>
+
+</html>
