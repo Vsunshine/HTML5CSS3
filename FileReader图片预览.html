@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" name='file'>
+    <button>点我查看内容</button>
+    <br>
+    <img src="" alt="">
+
+    <script>
+        var input = document.querySelector('input');
+        var button = document.querySelector('button');
+        var img = document.querySelector('img');
+
+        button.onclick = function () {  
+            //选中文件
+            var file = input.files[0];
+            //创建实例
+            var fr = new FileReader();
+            //读取图片内容
+            fr.readAsDataURL(file);
+            //等待读取完成
+            fr.onload = function () {  
+                img.src = fr.result;
+            }
+        }
+    </script>
+</body>
+</html>
