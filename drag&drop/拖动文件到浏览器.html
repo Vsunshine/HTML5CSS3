@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .da{
+            width: 500px;
+            height: 300px;
+            border: 10px dashed #ccc;
+            margin: 50px auto;
+            
+        }
+        h1{
+            color: #ccc;
+            line-height: 300px;
+            margin-left: 20%;
+
+        }
+        .xiao{
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="da">
+        <h1>将文件拖动到这</h1>
+    </div>
+    <div class="text"></div>
+    <script>
+        window.onload = function(){
+            
+            document.addEventListener('dragover',function (ev) {  
+                //文件进入浏览器，取消自动打开的  默认行为；
+                ev.preventDefault();
+            })
+
+            var da = document.querySelector('.da');
+            da.addEventListener('drop',function(ev){
+                //文件进入盒子内，取消默认打开的行为；
+                ev.preventDefault();
+
+                var files = ev.dataTransfer.files[0];
+                console.log(files);
+
+                var filereader = new FileReader();
+                filereader.readAsText(files);
+                
+                filereader.onload = function(){
+                    document.querySelector('.text').innerHTML = filereader.result;
+                }
+
+            })
+
+        }
+    </script>
+</body>
+</html>

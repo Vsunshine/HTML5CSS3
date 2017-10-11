@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            padding: 0;
+            margin: 0;
+        }
+        .da{
+            position: absolute;
+            top: 50px;
+            right:100px;
+            width: 500px;
+            height: 500px;
+            border: 1px solid #ccc;
+        }
+        .xiao{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="da" id="da"></div>
+    <!-- draggable 将元素变为壳拖动 -->
+    <div class="xiao" id="xiao" draggable="true"></div>
+    <script>
+        var da = document.querySelector('.da');
+        var xiao = document.querySelector('.xiao');
+        // 鼠标按下拖动时触发 dragstart
+        xiao.addEventListener('dragstart',function (ev) {  
+            console.dir(ev);
+            ev.dataTransfer.setData('id',this.id);
+        })
+        //拖动元素在目标元素上时触发 dragover
+        da.addEventListener('dragover',function(ev){
+            //取消事件默认行为   preventDefault 取消将文件拖进浏览器，自动打开的行为；
+            ev.preventDefault();
+        })
+
+        //放开拖动元素时触发 drop
+        da.addEventListener('drop',function(ev){
+            var id = ev.dataTransfer.getData('id');
+            console.log(id);
+            this.appendChild(document.getElementById(id));
+
+        })
+    </script>
+</body>
+</html>
