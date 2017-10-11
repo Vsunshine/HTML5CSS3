@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <title>Document</title>
+    <style>
+        html,
+        body,
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .main {
+            position: relative;
+            width: 600px;
+            height: 300px;
+            margin: 100px auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .main ul {
+            list-style: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .main li {
+            width: 150px;
+            height: 100%;
+            float: left;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg);
+            transition: all 1s;
+        }
+
+        .main li span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-size: 600px 300px;
+            width: 150px;
+            height: 300px;
+        }
+
+        span:nth-child(1) {
+            background: url('./images/1.jpg') no-repeat;
+            transform: rotateX(0deg) translateZ(150px);
+        }
+
+        span:nth-child(2) {
+            background: url('./images/2.jpg') no-repeat;
+            transform: rotateX(90deg) translateZ(150px);
+        }
+
+        span:nth-child(3) {
+            background: url('./images/3.jpg') no-repeat;
+            transform: rotateX(180deg) translateZ(150px);
+        }
+
+        span:nth-child(4) {
+            background: url('./images/4.jpg') no-repeat;
+            transform: rotateX(270deg) translateZ(150px);
+        }
+
+        li:nth-child(1) span {
+            background-position: 0 0;
+        }
+
+        li:nth-child(2) span {
+            background-position: -150px 0;
+        }
+
+        li:nth-child(3) span {
+            background-position: -300px 0;
+        }
+
+        li:nth-child(4) span {
+            background-position: -450px 0;
+        }
+        li:nth-child(2) {
+            transition-delay: 0.25s;
+        }
+        li:nth-child(3) {
+            transition-delay: 0.5s;
+        }
+        li:nth-child(4) {
+            transition-delay: 0.75s;
+        }
+        a{
+            opacity: 0;
+            transition:  all 1s;
+        }
+        .main:hover a{
+            opacity: 1;
+        }
+        .per{
+            position: absolute;
+            left: 3%;
+            top: 50%;
+            font-size: 25px;
+        }
+        .nth{
+            position: absolute;
+            right: 3%;
+            top: 50%;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <ul>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+        </ul>
+        <a href="javascript:;" class="fa fa-chevron-left per"></a>
+        <a href="javascript:;" class="fa fa-chevron-right nth"></a>
+    </div>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        var lii = document.querySelectorAll('li');
+        var per = document.querySelector('.per');
+        var nth = document.querySelector('.nth');
+        var num = 0;
+
+        //防止连点出bug
+        //transitionend 3d运行结束时触发
+        var flag = false;
+        lii[3].addEventListener('transitionend',function () {  
+            flag = false;
+            console.log(1)
+        })
+        //左箭头
+        per.addEventListener('click',function () {  
+            if(flag == true) return;
+            flag = true;
+            num++;
+            for (var i = 0; i < lii.length; i++) {
+                lii[i].style.webkitTransform = 'rotateX('+ num * 90+ 'deg)';
+            }
+
+        })
+        // 右箭头
+        nth.addEventListener('click',function () {  
+            if(flag == true) return;
+            flag = true;
+            num--;
+            for (var i = 0; i < lii.length; i++) {
+                lii[i].style.webkitTransform = 'rotateX('+ num * 90+ 'deg)';
+            }
+        })
+    </script>
+</body>
+
+</html>
