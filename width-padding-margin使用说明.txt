@@ -1,0 +1,17 @@
+按照 优先使用  宽度 （width）  其次 使用内边距（padding）    再次  外边距（margin）。   
+
+      
+
+width >  padding  >   margin   
+
+
+
+原因：
+
+
+
+ 1. margin 会有外边距合并 还有 ie6下面margin 加倍的bug（讨厌）所以最后使用。
+
+ 2. padding  会影响盒子大小， 需要进行加减计算（麻烦） 其次使用。
+
+ 3. width   没有问题（嗨皮）我们经常使用宽度剩余法 高度剩余法来做。
