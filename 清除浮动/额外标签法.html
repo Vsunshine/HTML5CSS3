@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 600px;
+            background-color: pink;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            float: left;
+        }
+        .box2{
+            width: 300px;
+            height: 400px;
+            background-color: green;
+            /* 此时.box没有了高度 */
+            float: left;
+        }
+        /* 添加额外的标签 */
+        .both{
+            clear: both;
+        }
+        
+        .bb{
+            width: 600px;
+            height: 200px;
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <h2>缺点： 添加许多无意义的标签，结构化较差。</h2>
+    <div class="box">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <!-- /* 添加额外的标签 */ -->
+        <div class="both"></div>
+    </div>
+    <div class="bb"></div>
+</body>
+</html>
