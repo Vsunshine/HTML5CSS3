@@ -1,0 +1,3 @@
+<video>支持的视频格式.txt
+
+ Ogg、MPEG4、WebM
