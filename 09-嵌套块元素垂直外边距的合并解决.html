@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            /* 此时50px不起作用 */
+            margin: 100px auto;
+        }
+
+
+        /* 解决方法一：给父元素添加边框 */
+        /* .box{
+            border: 5px solid #ccc;
+        } */
+
+
+        /* 解决方法一：给父元素加overflow:hidden */
+        .box{
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+        <!-- 对于两个嵌套关系的块元素，如果父元素没有上内边距及边框，
+        则父元素的上外边距会与子元素的上外边距发生合并，
+        合并后的外边距为两者中的较大者，即使父元素的上外边距为0，也会发生合并。 -->
+        <div class="box">
+            <div class="box2">
+                
+            </div>
+        </div>
+</body>
+</html>
