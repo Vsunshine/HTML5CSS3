@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./lib/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        .xsty {
+            width: 100%;
+            height: 190px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+            margin: 15px 0;
+            background-color: #f8f8f8;
+        }
+
+        .xsty .xsty-left {
+            float: left;
+            width: 70%;
+            height: 100%;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        .xsty .xsty-left h3 {
+            color: #337ab7;
+            width: 100%;
+            text-align: center;
+        }
+
+        .xsty .xsty-left ul {
+            list-style: none;
+            overflow: hidden;
+            padding-left: 0;
+        }
+
+        .xsty-left ul>li:first-child {
+            float: left;
+        }
+
+        .xsty-left ul>li:last-child {
+            float: right;
+        }
+
+        .xsty .xsty-right {
+            float: right;
+            height: 100%;
+            width: 30%;
+            padding: 0 15px;
+            box-sizing: border-box;
+            border-left: 1px dashed #333;
+            text-align: center;
+            position: relative;
+        }
+
+        .xsty .xsty-right .pp {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .xsty .xsty-right:before{
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+        .xsty .xsty-right:after{
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: -8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+    </style>
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a>
+            </li>
+            <li role="presentation">
+                <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a>
+            </li>
+            <li role="presentation">
+                <a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a>
+            </li>
+            <li role="presentation">
+                <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a>
+            </li>
+        </ul>
+        <div class="container-fluid">
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="home">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="xsty">
+                                <div class="xsty-left">
+                                    <h3>新手体验</h3>
+                                    <ul>
+                                        <li>起投金额</li>
+                                        <li>起投金额</li>
+                                    </ul>
+                                    <ul>
+                                        <li>0.01万</li>
+                                        <li>0.01万</li>
+                                    </ul>
+                                    <ul>
+                                        <li>借款期限</li>
+                                        <li>借款期限</li>
+                                    </ul>
+                                    <ul>
+                                        <li>10天</li>
+                                        <li>10天</li>
+                                    </ul>
+                                </div>
+                                <div class="xsty-right">
+                                    <div class="pp">
+                                        <p>8</p>
+                                        <p>年利率</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="xsty">
+                                <div class="xsty-left">
+                                    <h3>新手体验</h3>
+                                    <ul>
+                                        <li>起投金额</li>
+                                        <li>起投金额</li>
+                                    </ul>
+                                    <ul>
+                                        <li>0.01万</li>
+                                        <li>0.01万</li>
+                                    </ul>
+                                    <ul>
+                                        <li>借款期限</li>
+                                        <li>借款期限</li>
+                                    </ul>
+                                    <ul>
+                                        <li>10天</li>
+                                        <li>10天</li>
+                                    </ul>
+                                </div>
+                                <div class="xsty-right">
+                                    <div class="pp">
+                                        <p>8</p>
+                                        <p>年利率</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="xsty">
+                                <div class="xsty-left">
+                                    <h3>新手体验</h3>
+                                    <ul>
+                                        <li>起投金额</li>
+                                        <li>起投金额</li>
+                                    </ul>
+                                    <ul>
+                                        <li>0.01万</li>
+                                        <li>0.01万</li>
+                                    </ul>
+                                    <ul>
+                                        <li>借款期限</li>
+                                        <li>借款期限</li>
+                                    </ul>
+                                    <ul>
+                                        <li>10天</li>
+                                        <li>10天</li>
+                                    </ul>
+                                </div>
+                                <div class="xsty-right">
+                                    <div class="pp">
+                                        <p>8</p>
+                                        <p>年利率</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="xsty">
+                                <div class="xsty-left">
+                                    <h3>新手体验</h3>
+                                    <ul>
+                                        <li>起投金额</li>
+                                        <li>起投金额</li>
+                                    </ul>
+                                    <ul>
+                                        <li>0.01万</li>
+                                        <li>0.01万</li>
+                                    </ul>
+                                    <ul>
+                                        <li>借款期限</li>
+                                        <li>借款期限</li>
+                                    </ul>
+                                    <ul>
+                                        <li>10天</li>
+                                        <li>10天</li>
+                                    </ul>
+                                </div>
+                                <div class="xsty-right">
+                                    <div class="pp">
+                                        <p>8</p>
+                                        <p>年利率</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="profile">2</div>
+                <div role="tabpanel" class="tab-pane" id="messages">3</div>
+                <div role="tabpanel" class="tab-pane" id="settings">4</div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="./js/jQuery.min.js"></script>
+    <script src="./lib/js/bootstrap.min.js"></script>
+</body>
+
+</html>
