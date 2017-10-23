@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height = 300;
+        canvas.style.border = '1px solid #ccc';
+        var con = canvas.getContext('2d');
+
+        function dian(x, y, da) {
+            //坐标点大小
+            var sWidth = da;
+            con.beginPath();
+            con.moveTo(x - sWidth / 2, y - sWidth / 2);
+            con.lineTo(x + sWidth / 2, y - sWidth / 2);
+            con.lineTo(x + sWidth / 2, y + sWidth / 2);
+            con.lineTo(x - sWidth / 2, y + sWidth / 2);
+            con.fill();
+            con.closePath();
+        }
+
+        con.stroke();
+    </script>
+</body>
+
+</html>

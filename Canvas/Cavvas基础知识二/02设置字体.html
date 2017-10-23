@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height = 400;
+        canvas.style.border = '1px solid #ff0000';
+        var context = canvas.getContext('2d');
+
+        var text = '侯亚伟';
+        context.font = '70px Microsoft YaHei';
+        // 描边画法
+        // context.strokeText(text,canvas.width/2,canvas.height/2);
+
+
+
+        //字体位置
+        // context.textAlign = 'left';
+        // context.textAlign = 'right';
+        // context.textAlign = 'center';
+        // context.textAlign = 'end';
+        // context.textAlign = 'start';
+
+        //字体绘制基线
+        // context.textBaseline = 'bottom';
+        // context.textBaseline = 'top';
+        // context.textBaseline = 'middle';
+        // context.textBaseline = 'aphabetic';文本基线是普通的字母基线。
+
+        //获取文本宽度
+        var width = context.measureText(text).width;
+        console.log(width);
+
+        //填充画法 
+        //必须放在字体的下面
+        //         text	规定在画布上输出的文本。
+        //          x	开始绘制文本的 x 坐标位置（相对于画布）。
+        //           y	开始绘制文本的 y 坐标位置（相对于画布）。
+        context.fillText(text, canvas.width / 2, canvas.height / 2);
+
+        context.beginPath();
+        context.moveTo(0, canvas.height / 2);
+        context.lineTo(canvas.width, canvas.height / 2);
+        context.stroke();
+
+        context.beginPath();
+        context.moveTo(canvas.width / 2, 0);
+        context.lineTo(canvas.width / 2, canvas.height);
+        context.stroke();
+    </script>
+</body>
+
+</html>

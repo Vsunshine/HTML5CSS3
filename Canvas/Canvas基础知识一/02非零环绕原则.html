@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas></canvas>
+    <script>
+        var canvas = document.querySelector('canvas');
+        canvas.style.border = '1px solid #ccc';
+        canvas.width = 600;
+        canvas.height = 300;
+        var con = canvas.getContext('2d');
+        
+
+        con.moveTo(50,50);
+        con.lineTo(400,50);
+        con.lineTo(400,200);
+        con.lineTo(50,200); 
+        con.lineTo(50,50); 
+        con.fillStyle = 'yellowgreen';
+        con.fill();
+
+        // 第二个也要顺时针画，不能逆时针
+        con.beginPath();
+        con.moveTo(80,80);
+        con.lineTo(80,150);
+        con.lineTo(350,150);
+        con.lineTo(350,80);
+        con.lineTo(80,80);
+        con.fillStyle = 'skyblue';
+        con.fill();
+        
+        // 注意 ： 飞非零原则只适合一笔画成的图形；
+
+      
+
+
+    </script>
+</body>
+</html>

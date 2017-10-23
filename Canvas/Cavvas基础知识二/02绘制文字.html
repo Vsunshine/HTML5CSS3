@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height = 400;
+        canvas.style.border = '1px solid #ff0000';
+        var context = canvas.getContext('2d');
+
+        var text = '侯亚伟';
+        context.font = '80px Microsoft YaHei';
+        // 描边画法
+        // context.strokeText(text,canvas.width/2,canvas.height/2);
+        //填充画法
+        context.fillText(text,canvas.width/2,canvas.height/2);
+    </script>
+</body>
+
+</html>

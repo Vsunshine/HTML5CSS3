@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        //随机颜色
+        function se() {
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+
+            return 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+
+        var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height = 300;
+        canvas.style.border = '1px solid #ccc';
+
+        var con = canvas.getContext('2d');
+
+        var star = 0;
+        //arc(圆心x坐标，圆心y坐标，半径，开始弧度，结束弧度)
+        // 依赖数据
+        var data = [12, 40, 22, 10, 14];
+        
+        var sum = 0;
+        data.forEach(function (item){  
+            sum += item;
+        })
+        var sun = 0;
+        data.forEach(function (item){
+            con.beginPath();
+            con.moveTo(600/2,300/2);
+            con.arc(600/2,300/2,150,sun,sun+(item/sum*2*Math.PI));
+            con.closePath();
+            con.fillStyle = se();
+            con.fill();
+
+            sun = sun+(item/sum*2*Math.PI);
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>饼图</title>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        // 1.准备数据
+        var data = [{
+                title: '15-20岁',
+                num: 12
+            },
+            {
+                title: '20-25岁',
+                num: 30
+            },
+            {
+                title: '25-30岁',
+                num: 22
+            },
+            {
+                title: '30-35岁',
+                num: 10
+            },
+            {
+                title: '35-100岁',
+                num: 12
+            },
+        ];
+
+        function Bing() {
+            //准备工作
+            this.canvas = document.querySelector('canvas');
+            this.canvas.width = 600;
+            this.canvas.height = 400;
+            this.canvas.style.border = '1px solid red';
+            this.con = this.canvas.getContext('2d');
+            // 圆的圆心
+            this.yuanxinX = this.canvas.width / 2;
+            this.yuanxinY = this.canvas.height / 2;
+            //圆的半径
+            this.ybanjin = 150;
+            //延长线
+            this.chang = 20;
+            //画布大小
+            this.width = this.canvas.width;
+            this.height = this.canvas.height;
+        }
+        //随机色
+        Bing.prototype.se = function () {
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            return 'rgb(' + r + ',' + g + ',' + b + ')';
+
+        }
+        //转换数据
+        Bing.prototype.shuju = function (data) {
+            var sum = 0;
+            data.forEach(function (item) {
+                sum += item.num;
+            })
+            var xinData = [];
+            data.forEach(function (item) {
+                xinData.push({
+                    num: item.num,
+                    title: item.title,
+                    angle: item.num / sum * 2 * Math.PI
+                })
+            })
+            console.log(1);
+            return xinData;
+        }
+        //画饼
+        Bing.prototype.bing = function (data) {
+            var start = 0;
+            var _this = this;
+            var newdata = this.shuju(data);
+            newdata.forEach(function (item, i) {
+                _this.con.beginPath()
+                _this.con.moveTo(_this.yuanxinX, _this.yuanxinY);
+                _this.con.arc(_this.yuanxinX, _this.yuanxinY, 150, start, start + item.angle);
+                _this.con.closePath();
+                var color = _this.con.fillStyle = _this.se();
+                _this.con.fill();
+
+                _this.xiaofk(color, i, item.title);
+                _this.zhushi(color, item.title, start, item.angle);
+                start = start + item.angle;
+            })
+        }
+
+        //画小方块图例
+        Bing.prototype.xiaofk = function (color, index, title) {
+        
+            this.con.beginPath();
+            this.con.rect(20, 20 * (index + 1), 30, 10);
+            this.con.fillstyle = color;
+            this.con.fill();
+
+            this.con.beginPath();
+            this.con.fillText(title, 60, 20 * (index+1.5));
+            this.con.fillstyle = color;
+        }
+
+        //注释
+        Bing.prototype.zhushi = function (color, title, start, endstart) {
+            var suu = this.ybanjin + this.chang;
+
+            // 获取延长线X的长度
+            var edgeX = Math.cos(start + endstart / 2) * suu;
+            var edgeY = Math.sin(start + endstart / 2) * suu;
+
+            //获取拐点的坐标
+            var oX = this.yuanxinX + edgeX;
+            var oY = this.yuanxinY + edgeY;
+
+            this.con.beginPath();
+            this.con.moveTo(this.yuanxinX, this.yuanxinY);
+            this.con.lineTo(oX, oY);
+            // this.con.lineTo(ox+30,oY);
+            // 获取文字的宽度
+            var wid = this.con.measureText(title).width;
+            if (oX >= this.yuanxinX) {
+                this.con.lineTo(oX + wid, oY);
+                this.con.fillText(title, oX, oY - 3);
+            } else {
+                this.con.lineTo(oX - wid, oY);
+                this.con.fillText(title, oX - wid, oY - 3);
+            }
+            this.con.strokeStyle = color;
+            this.con.stroke();
+        }
+
+        Bing.prototype.init = function (data) {
+            this.bing(data);
+        }
+
+        new Bing().init(data);
+    </script>
+</body>
+
+</html>

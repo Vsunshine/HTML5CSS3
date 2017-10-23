@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <canvas></canvas>
+        <script>
+            var canvas = document.querySelector('canvas');
+            canvas.style.border = '1px solid #ccc';
+            canvas.width = 600;
+            canvas.height = 300;
+            var con = canvas.getContext('2d');
+
+            //四个参数都是  x的坐标，y轴坐标，宽，高；
+
+            // 边框三角形
+            // con.rect(450,250,30,30);
+            // con.stroke();
+
+            //上面的合并
+            // con.strokeRect(450,250,30,30);
+
+            //填充三角形
+            // 必须放在图形前面
+            con.fillStyle='red';
+            con.fillRect(100,100,300,100,);
+
+            // 抹除矩形区域
+            //将上面的红色部分抹除了一部分，变成 了透明
+            con.clearRect(150,130,30,30);
+
+            
+        </script>    
+</body>
+</html>

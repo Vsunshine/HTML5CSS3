@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>折线图</title>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        var data = [{
+                x: 100,
+                y: 100
+            },
+            {
+                x: 120,
+                y: 200
+            },
+            {
+                x: 140,
+                y: 250
+            },
+            {
+                x: 160,
+                y: 300
+            },
+            {
+                x: 180,
+                y: 190
+            },
+            {
+                x: 400,
+                y: 350
+            }
+        ]
+
+        var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height = 400;
+        canvas.style.border = '1px solid #ccc';
+
+        function Zhexian() {
+            // 设置画笔
+            this.con = canvas.getContext('2d');
+            // 获取画布的长宽
+            this.width = canvas.width;
+            this.height = canvas.height;
+            // 设置坐标里框的间距
+            this.sapce = 20;
+            //设置原点坐标
+            this.zonX = this.sapce;
+            this.zonY = this.height - this.sapce;
+            // 设置箭头大小
+            this.jantou = 10;
+            // 设置点的大小
+            this.dian = 8;
+        }
+
+        //初始化
+        Zhexian.prototype.init = function (data) {
+            this.setZbz();
+            this.huadians(data);
+
+        }
+
+        //绘制坐标轴
+        Zhexian.prototype.setZbz = function () {
+            // X轴
+            this.con.beginPath();
+            this.con.moveTo(this.zonX, this.zonY);
+            this.con.lineTo(this.width - this.sapce, this.zonY);
+            this.con.lineTo(this.width - this.sapce - this.jantou, this.zonY + this.jantou / 2);
+            this.con.lineTo(this.width - this.sapce - this.jantou, this.zonY - this.jantou / 2);
+            this.con.lineTo(this.width - this.sapce, this.zonY);
+            this.con.fill();
+            this.con.stroke();
+
+            // X轴
+            this.con.beginPath();
+            this.con.moveTo(this.zonX, this.zonY);
+            this.con.lineTo(this.zonX, this.sapce);
+            this.con.lineTo(this.zonX + this.jantou / 2, this.sapce + this.jantou);
+            this.con.lineTo(this.zonX - this.jantou / 2, this.sapce + this.jantou);
+            this.con.lineTo(this.zonX, this.sapce);
+            this.con.fill();
+            this.con.stroke();
+        }
+
+        //转换坐标
+        Zhexian.prototype.hzuobiao = function (data) {
+            var _this = this;
+            var huanData = [];
+            data.forEach(function (item, i) {
+                huanData.push({
+                    x: _this.zonX + item.x,
+                    y: _this.zonY - item.y
+                })
+            });
+
+            return huanData;
+
+        }
+
+        //绘制点
+        Zhexian.prototype.huadian = function (dotted) {
+            this.con.beginPath();
+            this.con.moveTo(dotted.x - this.dian / 2, dotted.y + this.dian / 2);
+            this.con.lineTo(dotted.x + this.dian / 2, dotted.y + this.dian / 2);
+            this.con.lineTo(dotted.x + this.dian / 2, dotted.y - this.dian / 2);
+            this.con.lineTo(dotted.x - this.dian / 2, dotted.y - this.dian / 2);
+            this.con.closePath();
+            this.con.fill();
+        }
+        //绘制连线
+        Zhexian.prototype.huaxian = function (mx, my, hx, hy) {
+            this.con.beginPath();
+            this.con.moveTo(mx, my);
+            this.con.lineTo(hx, hy);
+            this.con.stroke();
+        }
+        //绘制多个点
+        Zhexian.prototype.huadians = function (hdata) {
+            console.log(1);
+            var _this = this;
+            var canData = this.hzuobiao(hdata);
+            canData.forEach(function (item, i) {
+                _this.huadian(item);
+
+                //连线
+                if (i == 0) {
+                    _this.huaxian(_this.zonX, _this.zonY, item.x, item.y);
+                } else {
+                    _this.huaxian(canData[i - 1].x, canData[i - 1].y, item.x, item.y);
+                }
+            })
+        }
+
+
+        new Zhexian().init(data);
+    </script>
+</body>
+
+</html>

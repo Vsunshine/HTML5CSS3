@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <canvas></canvas>
+        <script>
+            var canvas = document.querySelector('canvas');
+            // 设置宽高
+            canvas.width = 600;
+            canvas.height = 300;
+            canvas.style.border = '1px solid #ccc';
+            //设置一个2d画笔
+            var con = canvas.getContext('2d');
+            //画画
+            con.moveTo(50,50);
+            con.lineTo(150,50);
+            con.lineTo(150,150);
+            con.closePath();
+            con.lineTo(50,50);
+            // 填充颜色
+            con.fillStyle='red';
+            // 必须加上这个才行；
+            con.fill();
+            con.stroke();
+        </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        var canvas = document.querySelector('canvas');
+        // 设置宽高
+        canvas.width = 600;
+        canvas.height = 300;
+        canvas.style.border = '1px solid #ccc';
+        //设置一个2d画笔
+        var con = canvas.getContext('2d');
+
+        function zhexian(x1,y1,x2,y2) {
+            con.beginPath()
+            con.moveTo(x1, y1);
+            con.lineTo(x2, y2);
+            con.stroke();
+
+            con.beginPath();
+            con.moveTo(x2-10/2,y2-10/2);
+            con.lineTo(x2+10/2,y2-10/2);
+            con.lineTo(x2+10/2,y2+10/2);
+            con.lineTo(x2-10/2,y2+10/2);
+            con.closePath();
+            con.fill();
+        }
+        // x,y轴
+        con.moveTo(20, 20);
+        con.lineTo(20, 280);
+        con.lineTo(520, 280);
+        con.stroke();
+        //箭头
+        con.beginPath()
+        con.moveTo(20, 20);
+        con.lineTo(10, 30);
+        con.lineTo(30, 30);
+        con.closePath();
+        con.fill();
+
+        con.beginPath()
+        con.moveTo(520, 280);
+        con.lineTo(510, 270);
+        con.lineTo(510, 290);
+        con.closePath();
+        con.fill();
+
+        // 折线
+        zhexian(20,280,50,200);
+        zhexian(50,200,80,150);
+        zhexian(80,150,100,160);
+        zhexian(100,160,130,180);
+        zhexian(130,180,190,20);
+
+        //面向对象实现
+    </script>
+</body>
+
+</html>

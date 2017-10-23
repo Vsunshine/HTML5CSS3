@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas></canvas>
+    <script>
+        var canvas = document.querySelector('canvas');
+        // 设置宽高
+        canvas.width=600;
+        canvas.height=300;
+        canvas.style.border = '1px solid #ccc';
+        //设置一个2d画笔
+        var con = canvas.getContext('2d');
+        //画画
+        // 起始点
+        con.moveTo(50,50);
+        //终点
+        con.lineTo(400,50);
+        //设置线宽
+        con.lineWidth = 10;
+        //设置线段两端样式
+        // 设置线的末端类型(butt是默认的类型  round圆角  square小方块)
+        con.lineCap = 'square';
+        // 描边
+        con.stroke();
+
+
+    </script>
+</body>
+</html>

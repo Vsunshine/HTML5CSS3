@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        //随机颜色
+        function se() {
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+
+            return 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+
+        var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height = 300;
+        canvas.style.border = '1px solid #ccc';
+
+        var con = canvas.getContext('2d');
+        // 分为180份，每份2°
+        var n = 180;
+        // 中轴线
+        con.moveTo(0, 300 / 2);
+        con.lineTo(600, 300 / 2);
+        con.stroke();
+
+        con.beginPath();
+        con.moveTo(600 / 2, 0);
+        con.lineTo(600 / 2, 300);
+        con.stroke();
+
+        var star = 0;
+        //arc(圆心x坐标，圆心y坐标，半径，开始弧度，结束弧度)
+
+        setInterval(function () {
+            for (var i = 0; i < n; i++) {
+                con.beginPath();
+                con.moveTo(600 / 2, 300 / 2);
+                con.arc(600 / 2, 300 / 2, 150, star, star + 2 * Math.PI / n);
+                con.closePath();
+                con.fillStyle = se();
+                con.fill();
+                star = star + 2 * Math.PI / n;
+            }
+        }, 100)
+    </script>
+</body>
+
+</html>

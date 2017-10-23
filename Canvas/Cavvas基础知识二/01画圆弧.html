@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas></canvas>
+    <script>
+        var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height = 300;
+        canvas.style.border = '1px solid #ccc';
+
+        var con = canvas.getContext('2d');
+
+        con.moveTo(600/2,300/2);
+        //arc(x坐标，y坐标，半径，开始弧度，结束弧度)
+        con.arc(600/2,300/2,140,30*Math.PI/180,150*Math.PI/180);
+        con.closePath();
+        con.fill();
+    </script>
+</body>
+</html>

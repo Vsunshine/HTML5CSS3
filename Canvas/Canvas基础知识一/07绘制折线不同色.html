@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        var canvas = document.querySelector('canvas');
+        // 设置宽高
+        canvas.width = 600;
+        canvas.height = 300;
+        canvas.style.border = '1px solid #ccc';
+        //设置一个2d画笔
+        var con = canvas.getContext('2d');
+        //画画
+        // 起始点
+        con.strokeStyle = 'red';
+        con.lineWidth = 10;
+        // bevel 创建斜角。
+        // round 创建圆角。
+        // miter 默认。 创建尖角。
+        con.lineJoin ='round';
+        con.moveTo(50, 50);
+        //终点
+        con.lineTo(80, 100);
+        con.lineTo(110, 50);
+        // 描边
+        con.stroke();
+
+        //第二个
+        con.beginPath();
+        con.strokeStyle = 'green';
+        con.lineWidth = 10;
+        // bevel 创建斜角。
+        // round 创建圆角。
+        // miter 默认。 创建尖角。
+        con.lineJoin ='round';
+        con.moveTo(50, 80);
+        //终点
+        con.lineTo(80, 130);
+        con.lineTo(110, 80);
+        // 描边
+        con.stroke();
+
+        //第三个
+        con.beginPath();
+        con.strokeStyle = 'yellow';
+        con.lineWidth = 10;
+        // bevel 创建斜角。
+        // round 创建圆角。
+        // miter 默认。 创建尖角。
+        con.lineJoin ='round';
+        con.moveTo(50, 110);
+        //终点
+        con.lineTo(80, 160);
+        con.lineTo(110, 110);
+        // 描边
+        con.stroke();
+    </script>
+</body>
+
+</html>
